@@ -82,7 +82,7 @@ class Menu {
 
     displayTeams() {
         let teamString = "";
-        for (let i =0 ; i < this.teams.length; i++) {
+        for (let i = 0 ; i < this.teams.length; i++) {
             teamString += i +') ' + this.teams[i].name + '\n';
         }
         alert(teamString);
@@ -113,6 +113,26 @@ class Menu {
                     this.deletePlayer();
             }
         }            
+    }
+
+    deleteTeam() {
+        let index = prompt('Enter the index of the team you wish to delete:');
+        if (index > -1 && index < this.teams.length) {
+            this.teams.splice(index, 1);
+        }
+    }
+
+    createPlayer() {
+        let name = prompt('Enter name for new player:');
+        let position = prompt('Enter position for new player:');
+        this.selectedTeam.players.push(new Player (name, position));
+    }
+
+    deletePlayer() {
+        let index = prompt('Enter the index of the player you wish to delete:');
+        if (index > -1 && index < this.selectedTeam.players.length) {
+            this.selectedTeam.players.splice(index, 1);
+        }
     }
 }
 
