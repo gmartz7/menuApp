@@ -27,31 +27,32 @@ class Team {
         return `${this.name} has ${this.players.length} players.`;
     }
 }
+
 class Menu {
     constructor() {
-        this.teams = []
+        this.teams = [];
         this.selectedTeam = null;
     }
 
     start() {
         let selection = this.showMainMenuOptions();
 
-        while (selection !=0) {
-            switch (Selection) {
-                case `1`:
+        while (selection != 0) {
+            switch (selection) {
+                case "1":
                     this.createTeam();
                     break;
-                case `2`:
+                case "2":
                     this.viewTeam();
                     break;
-                case`3`:
+                case"3":
                     this.deleteTeam();
                     break;
-                case `4`:
+                case "4":
                     this.displayTeams();
                     break;
                 default:
-                    selection = 0;
+                     selection = 0;
             }
             selection = this.showMainMenuOptions();
         }
@@ -66,7 +67,7 @@ class Menu {
         2) view team
         3) delete team
         4) display all teams
-        `)
+        `);
     }
 
     showTeamMenuOptions(teamInfo) {
@@ -81,15 +82,15 @@ class Menu {
 
     displayTeams() {
         let teamString = "";
-        for (let i=0; i < this.teams.length; i++) {
+        for (let i =0 ; i < this.teams.length; i++) {
             teamString += i +') ' + this.teams[i].name + '\n';
         }
         alert(teamString);
     }
     
     createTeam() {
-        let name = prompt("Enter name for new team:")
-        this.team.push(new Team(name));
+        let name = prompt("Enter name for new team:");
+        this.teams.push(new Team(name));
     }
 
     viewTeam() {
@@ -103,7 +104,7 @@ class Menu {
                  + ' - ' + this.selectedTeam.players[i].position + '\n';
             }
 
-            let selection = this.showMainMenuOptions(description);
+            let selection = this.showTeamMenuOptions(description);
             switch (selection) {
                 case '1':
                     this.createPlayer();
