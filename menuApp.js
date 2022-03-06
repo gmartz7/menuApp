@@ -69,6 +69,16 @@ class Menu {
         `)
     }
 
+    showTeamMenuOptions(teamInfo) {
+        return prompt(`
+        0) back
+        1) create player
+        2) delete player
+        -----------------------
+        ${teamInfo}
+        `);
+    }
+
     displayTeams() {
         let teamString = "";
         for (let i=0; i < this.teams.length; i++) {
@@ -104,3 +114,6 @@ class Menu {
         }            
     }
 }
+
+let menu = new Menu();
+menu.start();
